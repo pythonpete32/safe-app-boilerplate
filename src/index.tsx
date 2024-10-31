@@ -1,15 +1,15 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import SafeProvider from "@safe-global/safe-apps-react-sdk";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import React from "react";
+import SafeLoader from "./components/SafeLoader";
 
 import App from "./App";
 import "./index.css";
-import SafeLoader from "./components/SafeLoader";
+import ReactDOM from "react-dom/client";
+import SafeProvider from "@safe-global/safe-apps-react-sdk";
 
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { WagmiProvider } from "wagmi";
 import { config } from "./lib/wagmi";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const queryClient = new QueryClient();
 const root = document.getElementById("root");
