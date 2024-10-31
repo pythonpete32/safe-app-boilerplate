@@ -25,7 +25,7 @@
     "test": "vitest",
     "check": "biome check",
     "lint": "biome lint ./src --write",
-    "format": "b"
+    "format": "biome format ./src --write"
   },
   "eslintConfig": {
     "extends": "react-app"
