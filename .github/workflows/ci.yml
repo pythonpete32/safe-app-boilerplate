@@ -15,7 +15,7 @@ jobs:
         with:
           version: latest
       - name: Run Biome Version
-        run: biome --verison
+        run: biome --version
       - name: Run Biome Lint
         run: biome lint
       - name: Run Biome Format
