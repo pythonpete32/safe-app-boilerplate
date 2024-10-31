@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Safe Documentation
+    url: https://docs.safe.global/safe-core-aa-sdk/safe-apps
+    about: Check the Safe documentation for guidance
+  - name: Safe Discord
+    url: https://chat.safe.global
+    about: Join the Safe Discord for community support

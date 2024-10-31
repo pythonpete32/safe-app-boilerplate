@@ -1,24 +1,29 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import SafeProvider from '@safe-global/safe-apps-react-sdk'
-import App from './App'
-import { Loader2 } from 'lucide-react'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import SafeProvider from "@safe-global/safe-apps-react-sdk";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-// Vite way of mounting
-const root = document.getElementById('root')
+import App from "./App";
+import "./index.css";
+import SafeLoader from "./components/SafeLoader";
+
+import { WagmiProvider } from "wagmi";
+import { config } from "./lib/wagmi";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
+const queryClient = new QueryClient();
+const root = document.getElementById("root");
 
 // biome-ignore lint/style/noNonNullAssertion: <explanation>
 ReactDOM.createRoot(root!).render(
-  <React.StrictMode>
-    <SafeProvider
-      loader={
-        <>
-          <h1 className="text-4xl font-mono font-semibold">Waiting for Safe...</h1>
-          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-        </>
-      }
-    >
-      <App />
-    </SafeProvider>
-  </React.StrictMode>,
-)
+	<React.StrictMode>
+		<WagmiProvider config={config}>
+			<QueryClientProvider client={queryClient}>
+				<SafeProvider loader={<SafeLoader />}>
+					<App />
+					<ReactQueryDevtools initialIsOpen={false} />
+				</SafeProvider>
+			</QueryClientProvider>
+		</WagmiProvider>
+	</React.StrictMode>,
+);

@@ -1,7 +1,8 @@
 {
-  "short_name": "Safe App",
-  "name": "Safe App Starter",
-  "description": "Describe your Safe App here",
+  "short_name": "Safe Boilerplate",
+  "name": "Safe App Boilerplate",
+  "description": "Boilerplate for building Safe Apps",
+  "iconPath": "logo.svg",
   "icons": [
     {
       "src": "logo.svg",
