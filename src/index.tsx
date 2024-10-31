@@ -8,11 +8,8 @@ import SafeProvider from '@safe-global/safe-apps-react-sdk'
 
 import App from './App'
 
-const rootElement = document.getElementById('root')
-if (!rootElement) throw new Error('Root element not found on public/index.html')
-
-const root = ReactDOM.createRoot(rootElement)
-root.render(
+// Vite way of mounting
+ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <SafeThemeProvider mode="light">
       {(safeTheme: Theme) => (
