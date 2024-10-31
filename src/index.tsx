@@ -1,31 +1,24 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { Theme, ThemeProvider } from '@mui/material/styles'
-import CircularProgress from '@mui/material/CircularProgress'
-import Typography from '@mui/material/Typography'
-import { SafeThemeProvider } from '@safe-global/safe-react-components'
 import SafeProvider from '@safe-global/safe-apps-react-sdk'
-
 import App from './App'
+import { Loader2 } from 'lucide-react'
 
 // Vite way of mounting
-ReactDOM.createRoot(document.getElementById('root')!).render(
+const root = document.getElementById('root')
+
+// biome-ignore lint/style/noNonNullAssertion: <explanation>
+ReactDOM.createRoot(root!).render(
   <React.StrictMode>
-    <SafeThemeProvider mode="light">
-      {(safeTheme: Theme) => (
-        <ThemeProvider theme={safeTheme}>
-          <SafeProvider
-            loader={
-              <>
-                <Typography variant="h1">Waiting for Safe...</Typography>
-                <CircularProgress color="primary" />
-              </>
-            }
-          >
-            <App />
-          </SafeProvider>
-        </ThemeProvider>
-      )}
-    </SafeThemeProvider>
+    <SafeProvider
+      loader={
+        <>
+          <h1 className="text-4xl font-mono font-semibold">Waiting for Safe...</h1>
+          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+        </>
+      }
+    >
+      <App />
+    </SafeProvider>
   </React.StrictMode>,
 )
